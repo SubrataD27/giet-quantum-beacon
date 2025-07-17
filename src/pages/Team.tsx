@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Mail, Phone, Users, GraduationCap, BookOpen, Award } from 'lucide-react';
+import { Mail, Phone, Users, GraduationCap, BookOpen, Award, Linkedin } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -8,18 +7,20 @@ const Team = () => {
   const faculty = [
     {
       name: "Dr. Raghvendra Kumar",
-      position: "Professor & Lab Director",
+      position: "Professor & Lab Director", 
       department: "Department of Computer Science and Engineering",
       email: "raghvendra@giet.edu",
       phone: "+91-7804068698",
       specialization: "Quantum Algorithms, Machine Learning",
       experience: "15+ years",
-      education: "Ph.D. in Computer Science"
+      education: "Ph.D. in Computer Science",
+      image: "https://i.imgur.com/4b2l5E0.jpeg",
+      linkedin: "https://www.linkedin.com/in/raghvendra-kumar-828140241/"
     },
     {
       name: "Mr. Dillip Kumar Mishra",
       position: "Assistant Professor",
-      department: "Department of Computer Science and Engineering",
+      department: "Department of Computer Science and Engineering", 
       email: "dillipkumarmishra@giet.edu",
       phone: "7326977444",
       specialization: "Quantum Cryptography, Security Protocols",
@@ -34,7 +35,9 @@ const Team = () => {
       phone: "",
       specialization: "Quantum Networks, Communication Systems",
       experience: "12+ years",
-      education: "Ph.D. in Electronics & Communication"
+      education: "Ph.D. in Electronics & Communication",
+      image: "https://i.imgur.com/NbL4Rjq.jpeg",
+      linkedin: "https://www.linkedin.com/in/dr-kakita-murali-gopal-9b5b337b/?originalSubdomain=in"
     }
   ];
 
@@ -47,7 +50,7 @@ const Team = () => {
       supervisor: "Dr. Raghvendra Kumar"
     },
     {
-      name: "Arun Patel",
+      name: "Arun Patel", 
       level: "M.Tech Student",
       area: "Post-Quantum Cryptography",
       year: "2nd Year",
@@ -57,7 +60,7 @@ const Team = () => {
       name: "Sneha Rao",
       level: "Ph.D. Scholar",
       area: "Quantum Error Correction",
-      year: "1st Year",
+      year: "1st Year", 
       supervisor: "Dr. K.M. Gopal"
     },
     {
@@ -78,7 +81,7 @@ const Team = () => {
     },
     {
       name: "Prof. Michael Weber",
-      affiliation: "University of Vienna, Austria",
+      affiliation: "University of Vienna, Austria", 
       expertise: "Quantum Cryptography",
       collaboration: "Quantum Key Distribution Research"
     },
@@ -122,8 +125,21 @@ const Team = () => {
             {faculty.map((member, index) => (
               <Card key={index} className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/30 text-center hover:scale-105 transition-all duration-300">
                 <CardHeader>
-                  <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <GraduationCap className="w-12 h-12 text-white" />
+                  <div className="w-32 h-32 mx-auto mb-4 relative overflow-hidden rounded-full border-4 border-purple-500/50">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                        }}
+                      />
+                    ) : null}
+                    <div className={`w-full h-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center ${member.image ? 'hidden' : 'flex'}`}>
+                      <GraduationCap className="w-16 h-16 text-white" />
+                    </div>
                   </div>
                   <CardTitle className="text-white text-xl">{member.name}</CardTitle>
                   <CardDescription className="text-purple-300">{member.position}</CardDescription>
@@ -153,6 +169,19 @@ const Team = () => {
                         <div className="flex items-center text-purple-200 text-sm">
                           <Phone className="w-4 h-4 mr-2" />
                           <span>{member.phone}</span>
+                        </div>
+                      )}
+                      {member.linkedin && (
+                        <div className="flex items-center text-purple-200 text-sm">
+                          <Linkedin className="w-4 h-4 mr-2" />
+                          <a 
+                            href={member.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-blue-300 transition-colors"
+                          >
+                            LinkedIn Profile
+                          </a>
                         </div>
                       )}
                     </div>
