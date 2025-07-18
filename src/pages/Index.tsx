@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Atom, Book, Users, Mail, Calendar, Award, ArrowRight, ExternalLink, Phone, Zap, Network, Shield, Brain, FlaskConical, Microscope, MapPin, Globe, Target, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -75,6 +74,75 @@ const Index = () => {
     { name: "Microsoft Azure Quantum", logo: "☁️" },
     { name: "DST SERB", logo: "🏛️" },
     { name: "AICTE", logo: "🎓" }
+  ];
+
+  const associationLogos = [
+    { 
+      src: "https://i.imgur.com/hTLpc3f.png", 
+      alt: "GIET University Logo",
+      name: "GIET University",
+      role: "Host Institution"
+    },
+    { 
+      src: "https://www.ieindia.org/Image/iei_Logo.jpg", 
+      alt: "IEI Logo",
+      name: "Institution of Engineers India",
+      role: "" 
+    },
+    { 
+      src: "https://www.isteonline.in/icons/logo.png", 
+      alt: "ISTE logo",
+      name: "ISTE",
+      role: "" 
+    },
+    { 
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHBQ1jkLg3mTTciU1oRwspnMMUmETXWF75MQ&s", 
+      alt: "UGC",
+      name: "UGC",
+      role: ""
+    },
+    { 
+      src: "https://i0.wp.com/sjbit.edu.in/wp-content/uploads/2021/07/AICTE-Logo-250x250-1.png?w=250&ssl=1", 
+      alt: "AICTE Logo",
+      name: "AICTE",
+      role: ""
+    },
+    { 
+      src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAADwCAMAAABCI8pNAAAAh1BMVEX///8AAACUlJSoqKi5ubmfn5/b29s0NDTMzMz8/PyamprU1NTY2Nh5eXnw8PC0tLTt7e3j4+Ourq7Dw8Pg4OBpaWmMjIyDg4PAwMDPz8+AgICenp739/eOjo5BQUFzc3NdXV1ISEhkZGRQUFBUVFQqKio7OzsiIiIVFRUcHBwREREuLi42NjaT4469AAAdL0lEQVR4nO19h5brNs8tIEoy1Xu1uuTu93++C1CeczyTM8mX/Ums3OW9Zo2LZBtbJNEIUgBvvPHGG6+DaZdaWIYyagzz1bL8n+FXUTIauKJDHLDte/3VUv1fIIjISUOR5JD5NeQVoKHXKF4t119Hg7cksKw0hhZsS4ABRqhJOB1eLdhfh4UJWEbp5A3KY9CbHWixG+odNq+W7K8DDee4n3rtvMg41cN2wALOfYPZqwX765h3TWFhL3+80RiFtPUBXyjTXwDp6h/P+wGgCCEUgbUeC0yYu1D+tyhppOTGlQC4iLLwIa7jGX1gBai3BWCkXX6c7rTFtnV6ciTT47q7Y6heHoJSIDFaTkk30VFsyCiVtjyQ2lDwRxxnROeFIv8BAsz0mB7Zth51qNB3GwTbA8g8tOCqz67vhWUDiKpzNjiQ7rMyjF8s+LeI0HFc9ewEYTZ6SPbHT6SWWHToRKMqoMYr26anlwYdcubVQJndZttpIbFBDaNpFAP6PWkBjV5p4/mkGgKXZUcjJyjJ2raX4w1b9TmR9OPrpP492EekNoro+sO+AUufx8sASi141xAz05LontgixXNDPZOGU+Q/Phqj//33vgzRgk2KnWY11B41vVFHnq7X4ykEuaBcHVf/ZgrSe16AGJKNalU3tXyYr6c8CF/M4AuaYxesavoMBYiFR7/X6CnqxAPTuDAyxEXXNBNtRBOyEgbUg5C7455bzBkRJ+vFLD5hNNZBBN4CO9INCx6CwDtCCRe0xVwJ1HwpKWAqnAtSG471QldgYLUgvUPJn/TlfXglha+4RmRVoQm9LhxaOA7gGsHeJlWdoiDn1e773tbtUsTQpTZpiDlvkjg7kO4zjl6+fkddbcmdDbEe68ER5CVkNOyrhWQ76hQl0aBx94OWZaK52WGee705zETBHvwsd20+7kfYSDrfO6iW2wqGuFnWjnefbZdM6UIdqixJIcRXO8dBQnRC9GiEmTtd4y53Y7U9AXm0NNoOJ6ySHpZsOxrCuzbKABHkBdOxGPZE6haRWvNjmaER0ABK8zsrvTvsISnJ1DpBi8UBkoO254E0N7Me3F7L4yfKjnpSKfohASMZgMMkCE8VTmRqrcChaH3SpsYFN6vjsYFROllnVNRFqYGq3A88/hJ57kvIhpcS+YlDCF42yvlyQzfH3QTZDKQXZIw98b3rEGiwiDyvPNB98tSzED1DuRN5h17adupbTH4Ygpcy+YBFimrRwbgMUQOTmaE/V/cYwtri4bMgzr4eWn1SdG5TkHnCasF8TEDqQweO21wWkdmzMI+dR/321WxW3HCsyFbeKtLOrQf5lNOrusDgPAUIPIAkjTSTXIWWNBwOjnWIgjpH7xqD7uHtiubNwwBKQ7TDq8ms8L1lb0z7pS1K8LGAoyXIJxgqEp/6Ue8dcWyiTJJJSnZ46EXoI2S4i6DQyVEyyxAq75iNZRvnuJXUpcSx8LJF0xGCDPVGmzybNIZTI5bQNPSAN24sUuRom4lve25u0xkF6pMHQoLWnrXcEMuGMnzJ5RItQ19NpCpC9DX/RlwKNjknaOoz/sRxiMjvljkRcU/dGUknYDgmBw+X8Ib7VxN5gjVXaWLkGnk6EIQ0xkNxO7BvgE1cht48IV5HPF06T9jU2YSAutUM0EdwOgx3dtQY+w7lH//Qvwit3Yt6aPQdGs1JG20fCk3UeOVUeGg5mrTHxSrzBHLuhuhQxLS", 
+      alt: "DSIR Logo",
+      name: "DSIR",
+      role: ""
+    },
+    { 
+      src: "https://i.imgur.com/vm3WyIN.png", 
+      alt: "NBA Logo",
+      name: "NBA",
+      role: ""
+    },
+    { 
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyf3Dx0DxFNj_HxGi6N4y1MAe08pD3mlIzlZA01Q5YrokK11mnaiJde4xNVRUXQPk6CSE&usqp=CAU", 
+      alt: "ICAR Logo",
+      name: "ICAR",
+      role: ""
+    },
+    { 
+      src: "https://brand-experience.ieee.org/wp-content/uploads/2016/12/20040818-300x168.jpeg", 
+      alt: "IEEE Logo",
+      name: "IEEE",
+      role: ""
+    },
+    { 
+      src: "data:image/png;base64,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", 
+      alt: "INC Logo",
+      name: "INC",
+      role: ""
+    },
+    { 
+      src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAABgFBMVEX///8AAAD8/Pz5+fn19fXx8fHj4+Pp6enu7u7BwcHm5ubd3d3X19fT09OpqanNzc2dnZ1ISEhCQkIrKyuMjIx+fn6jo6NgYGBmZmawsLBaWlo1NTUYGBhsbGweHh67u7tRUVEPDw91dXWVlZXOIhLhAAAgAElEQVR4nMUd12LjOM7qktWrVaz+//94BEBSVHFJZmYPD7uZxJYIEr3xdvtzMG0v1QjmYVqSQP/iS9ZYLtPMv6ZNnvPNl/41GPfmQQt6dlkd+8ZPvhs0dTdwfJbY/D/j44ZFjkvJ074KjF+sxhnLqXviqT6au/n3l/j1QrwSl6FlSxP85Ej2cPfWvsPntGv8+8f8ETjNgqjkfeJZ7z5oWHyFLw9Odxk+SG/d6v0f0LmPC25mWnjO5QfCOCSi8YtyxB+cqonj2H9BSozeUIzkhfcfE5sb1cgraeS/OJQgy9IKV1VoWoG/auac/bJdCu/FQ4MqJaL1/kNRoMdEE21kn95qxnRSDfv7gCfCTrBErEohiLviBSkZd0KnK+P/Ch1nQXbN4wvdYDTDsMLSPTw4/4Y49Hf4U6ZJKOnTTekfv39vCN/qP2Edo0BVN0SXe2expXcB+8HFNT0YXis7Qp//tratcQKdlMCH40Eb1tMjzArkyqyN/xQNhIaEaOFe/9mI2B9j9oNFRxDdbuw3aXgjZIB5dIad1sPGR2xbzsgw4UIEmf7bw9Gdnkh6J8CM0N7+EQMGukRGC4F7OkAv1MTSW44eMx1ySWe7lQc9ypfoH8o1swGyH5Ydd7reok0b6fuMimqXkBlm2F7GPTnIrwpoEz/D5FvHfuOwp6Xie04Sqys3xxqoufzKzvsN+AXIsLRRXmrYHpzV3Gy4MeGVM3632GeXni2oYJzxBPqvCYUNmWoQQptR1sLYZ3fe5gqCLRv/zeHELcqhePuNHldkZCpCyWQcMTMaMhlvJTGsZ8kJmZxLN5RvgEzJ2YuBX8OWRPsXhguK8eDvo2JWE2oWRUf6BVcKoyoNPLboSr+Z7G+FOZIZipKJnUOLe2+wXcni2539r6PD8GlPksM73Qhe0P51sUYCudztUkPWR7y3AUJ2JKVxM9lSSxfkMgAjQ5MJ3AU/6rCfWvvmMZZZ8CtBTZ86Lakosd6tERFuwSppp2Hr8ZFKQd2jFsFNwGUpPWxUnSSXg/ypV6v/ruokm57IoKcqXmOSGVZ3yt45bArtD5mAYX9h1baSSBBY4GYpwIaeE9nMAsPzbMhGVdQJtRsdY3Ml2Pj7GXq45DKitW0e73Rhbdyu95DMc01KQxEE+YlFAL1CpfQq6m8nyO8nCZ/8SawB9Nwpg01vPnV2YT46u+YBjHvDbMh5SUzB/AM/oBIeigxkgtv61ELgXAezmbWRSR9aLYlnwYXn5wS", 
+      alt: "AIU Logo",
+      name: "AIU",
+      role: ""
+    }
   ];
 
   return (
@@ -444,6 +512,91 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Association Logos Ribbon */}
+      <div className="bg-gradient-to-r from-blue-100 via-white to-purple-100 py-8 border-t-4 border-gradient-to-r from-blue-600 to-purple-600 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">Our Professional Associations</h3>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          </div>
+          
+          {/* Continuous scrolling ribbon */}
+          <div className="relative">
+            <div className="flex animate-scroll space-x-12 items-center">
+              {/* First set of logos */}
+              {associationLogos.map((logo, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0 flex flex-col items-center group">
+                  <div className="w-20 h-20 bg-white rounded-xl shadow-lg flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300 border border-gray-200">
+                    <img 
+                      src={logo.src} 
+                      alt={logo.alt}
+                      className="max-w-full max-h-full object-contain"
+                      onError={(e) => {
+                        const target = e.currentTarget as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<div class="text-2xl font-bold text-gray-600">${logo.name.substring(0, 3)}</div>`;
+                        }
+                      }}
+                    />
+                  </div>
+                  <div className="text-center mt-2">
+                    <p className="text-xs font-medium text-gray-700">{logo.name}</p>
+                    {logo.role && <p className="text-xs text-gray-500">{logo.role}</p>}
+                  </div>
+                </div>
+              ))}
+              
+              {/* Duplicate set for seamless scrolling */}
+              {associationLogos.map((logo, index) => (
+                <div key={`second-${index}`} className="flex-shrink-0 flex flex-col items-center group">
+                  <div className="w-20 h-20 bg-white rounded-xl shadow-lg flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300 border border-gray-200">
+                    <img 
+                      src={logo.src} 
+                      alt={logo.alt}
+                      className="max-w-full max-h-full object-contain"
+                      onError={(e) => {
+                        const target = e.currentTarget as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<div class="text-2xl font-bold text-gray-600">${logo.name.substring(0, 3)}</div>`;
+                        }
+                      }}
+                    />
+                  </div>
+                  <div className="text-center mt-2">
+                    <p className="text-xs font-medium text-gray-700">{logo.name}</p>
+                    {logo.role && <p className="text-xs text-gray-500">{logo.role}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Add custom CSS for scrolling animation */}
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 2));
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 };
